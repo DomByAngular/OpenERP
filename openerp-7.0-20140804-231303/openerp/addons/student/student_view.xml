@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-    <!--定义表单视图-->
+        <!--定义表单视图-->
         <record model="ir.ui.view" id="canyou_student_form_view">
             <field name="name">学生信息表单</field>
             <field name="type">form</field>
             <field name="model">canyou.student</field>
             <field name="arch" type="xml">
                 <form string=" 学生信息表单" version="7.0">
-                  <group>
-                    <field name="name"/>
-                    <field name="age"/>
-                    <field name="gender"/>
-                    <field name="birthday"/>
-                       <field name="classq"/>
-                    <field name="email"/>
-                 </group>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="birthday"/>
+                        <field name="class"/>
+                        <field name="student_no"/>
+                        <field name="major"/>
+                        <field name="email"/>
+                    </group>
                 </form>
             </field>
         </record>
@@ -25,26 +27,29 @@
             <field name="type">tree</field>
             <field name="model">canyou.student</field>
             <field name="arch" type="xml">
-                <tree string="学生列表" >
+                <tree string="学生列表">
                     <field name="name"/>
                     <field name="age"/>
                     <field name="gender"/>
                     <field name="birthday"/>
+                    <field name="class"/>
+                    <field name="student_no"/>
+                    <field name="major"/>
                     <field name="email"/>
                 </tree>
             </field>
         </record>
-<!--定义视图动作-->
-    <record model="ir.actions.act_window"  id="action_canyou_student">
-        <field name="name">学生列表</field>
-        <field name="res_model">canyou.student</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-        <field name="view_id" eval="False"/>
-    </record>
-<!--定义菜单-->
-    <menuitem id="canyou_student_manage" name="学生管理"/>
-    <menuitem id="canyou_student_menu" name="学生管理" parent="canyou_student_manage"/>
-    <menuitem id="canyou_student_all_menu" name="学生列表" parent="canyou_student_menu" action="action_canyou_student"/>
-</data>
+        <!--定义视图动作-->
+        <record model="ir.actions.act_window" id="action_canyou_student">
+            <field name="name">学生列表</field>
+            <field name="res_model">canyou.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+        </record>
+        <!--定义菜单-->
+        <menuitem id="canyou_student_manage" name="学生管理"/>
+        <menuitem id="canyou_student_menu" name="学生管理" parent="canyou_student_manage"/>
+        <menuitem id="canyou_student_all_menu" name="学生列表" parent="canyou_student_menu" action="action_canyou_student"/>
+    </data>
 </openerp>

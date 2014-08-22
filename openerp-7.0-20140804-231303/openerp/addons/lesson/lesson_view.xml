@@ -12,7 +12,6 @@
                     <field name="name"/>
                     <field name="date_start"/>
                     <field name="total_day"/>
-                    <field name="price"/>
                     <field name="teacher"/>
                     <field name="students" colspan="4"/>
                  </group>
@@ -29,7 +28,6 @@
                     <field name="name"/>
                     <field name="date_start"/>
                     <field name="teacher"/>
-                    <field name="price" sum="合计"/>
                 </tree>
             </field>
         </record>
@@ -42,8 +40,8 @@
         <field name="view_id" ref="canyou_training_lesson_tree_view"/>
     </record>
 <!--定义菜单-->
-    <menuitem id="canyou_menu" name="Canyou培训"/>
-    <menuitem id="canyou_training_menu" name="残友培训" parent="canyou_menu"/>
-    <menuitem id="canyou_training_lesson_menu" name="精品课程" parent="canyou_training_menu" action="action_canyou_training_lesson"/>
+    <menuitem id="canyou_menu" name="课程管理"/>
+    <menuitem id="canyou_training_menu" name="课程管理" parent="canyou_menu"/>
+    <menuitem id="canyou_training_lesson_menu" name="课程列表" parent="canyou_training_menu" action="action_canyou_training_lesson"/>
 </data>
 </openerp>
