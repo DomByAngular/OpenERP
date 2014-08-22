@@ -1,0 +1,16 @@
+#！-*- coding=utf-8 -*-
+__author__ = 'ys'
+
+from openerp.osv import fields, osv
+
+class oecn_training_classroom(osv.osv):
+    _name = 'oecn.training.classroom'
+    _description = u'OECN 教室'
+    _columns = {
+    'number':fields.char(u'编号', size=64, select=True),
+    'capacity':fields.integer(u'容纳人数', select=True),
+    'location':fields.char(u'地点', size=125, select=True),
+    }
+oecn_training_classroom()
+
+    # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

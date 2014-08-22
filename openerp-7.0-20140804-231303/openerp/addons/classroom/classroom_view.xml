@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--OECN 教室-->
+            <record model="ir.ui.view" id="oecn_training_classroom_from_view">
+            <field name="name">教室</field>
+            <field name="type">form</field>
+            <field name="model">oecn.training.classroom</field>
+            <field name="arch" type="xml">
+                <field name="number"/>
+                <field name="capacity"/>
+                <field name="location" />
+            </field>
+        </record>
+         <!--定义列表视图-->
+        <record model="ir.ui.view" id="oecn_training_classroom_tree_view">
+            <field name="name">教室列表</field>
+            <field name="type">tree</field>
+            <field name="model">oecn.training.classroom</field>
+            <field name="arch" type="xml">
+                <field name="number"/>
+                <field name="capacity"/>
+                <field name="location" />
+            </field>
+        </record>
+<!--定义视图动作-->
+    <record model="ir.actions.act_window"  id="action_oecn_training_classroom">
+        <field name="name">教室</field>
+        <field name="res_model">oecn.training.classroom</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form,tree</field>
+        <field name="view_id" ref="oecn_training_classroom_tree_view"/>
+    </record>
+        <menuitem id="oecn_training_classroom_menu"
+                  name="OECN培训教室"
+                  parent="oecn_training.oecn_training_menu"
+                  action="action_oecn_training_classroom"/>
+    </data>
+</openerp>

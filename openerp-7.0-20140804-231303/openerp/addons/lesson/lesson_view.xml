@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <!--定义表单视图-->
+        <record model="ir.ui.view" id="canyou_training_lesson_form_view">
+            <field name="name">课程表单</field>
+            <field name="type">form</field>
+            <field name="model">canyou.lesson</field>
+            <field name="arch" type="xml">
+                <form string="课程表单" version="7.0">
+                  <group>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="total_day"/>
+                    <field name="price"/>
+                    <field name="teacher"/>
+                    <field name="students" colspan="4"/>
+                 </group>
+                </form>
+            </field>
+        </record>
+        <!--定义列表视图-->
+        <record model="ir.ui.view" id="canyou_training_lesson_tree_view">
+            <field name="name">课程列表</field>
+            <field name="type">tree</field>
+            <field name="model">canyou.lesson</field>
+            <field name="arch" type="xml">
+                <tree string="课程列表" version="7.0">
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="teacher"/>
+                    <field name="price" sum="合计"/>
+                </tree>
+            </field>
+        </record>
+<!--定义视图动作-->
+    <record model="ir.actions.act_window"  id="action_canyou_training_lesson">
+        <field name="name">课程</field>
+        <field name="res_model">canyou.lesson</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form,tree</field>
+        <field name="view_id" ref="canyou_training_lesson_tree_view"/>
+    </record>
+<!--定义菜单-->
+    <menuitem id="canyou_menu" name="Canyou培训"/>
+    <menuitem id="canyou_training_menu" name="残友培训" parent="canyou_menu"/>
+    <menuitem id="canyou_training_lesson_menu" name="精品课程" parent="canyou_training_menu" action="action_canyou_training_lesson"/>
+</data>
+</openerp>
